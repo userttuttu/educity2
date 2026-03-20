@@ -243,7 +243,7 @@
                     <div>
                         <h3 class="text-2xl font-bold mb-2">스토리텔링 러닝 투어 (Story-Running)</h3>
                         <p class="text-gray-400 leading-relaxed">
-                            도시의 역사적 유적지나 골목길을 연결하는 5km~10km 러닝 코스를 개발하고, GPS 기반 앱을 통해 특정 구간 통과 시 해당 장소의 역사와 인문학적 스토리를 오디오북처럼 들려주는 시스템 구축. '운동'과 '도시 역사 학습'을 결합한 새로운 관광/생활 체육 모델.
+                            도시의 역사적 유적지나 골목길을 연결하는 5km~10km 러닝 코스를 개발하고, GPS 기반 앱을 외부 특정 구간 통과 시 해당 장소의 역사와 인문학적 스토리를 오디오북처럼 들려주는 시스템 구축. '운동'과 '도시 역사 학습'을 결합한 새로운 관광/생활 체육 모델.
                         </p>
                     </div>
                 </div>
@@ -287,13 +287,15 @@
                         당신이 살고 있는 도시나 동네 이름을 입력해보세요. AI가 지역 특성을 분석하여 해당 지역에 딱 맞는 <strong class="text-sports-400">스포츠 인문학 재생 프로젝트</strong>를 즉석에서 기획해 드립니다.
                     </p>
                     
-                    <div class="flex flex-col md:flex-row gap-4 justify-center max-w-2xl mx-auto mb-6">
-                        <input type="text" id="location-input" placeholder="예: 부산 해운대구, 서울 성수동, 제주도..." class="px-6 py-4 rounded-xl bg-urban-900 border border-gray-600 focus:border-sports-500 focus:ring-2 focus:ring-sports-500/50 text-white w-full md:w-2/3 outline-none transition-all shadow-inner">
-                        <button id="generate-btn" class="px-6 py-4 rounded-xl bg-gradient-to-r from-sports-500 to-emerald-400 hover:from-sports-600 hover:to-emerald-500 text-white font-bold transition-all transform hover:scale-105 flex items-center justify-center gap-2 md:w-1/3 shadow-lg shadow-sports-500/30">
-                            ✨ AI 기획하기
-                        </button>
+                    <div class="flex flex-col gap-4 justify-center max-w-2xl mx-auto mb-6">
+                        <div class="flex flex-col md:flex-row gap-4 w-full">
+                            <input type="text" id="location-input" placeholder="예: 부산 해운대구, 서울 성수동, 제주도..." class="px-6 py-4 rounded-xl bg-urban-900 border border-gray-600 focus:border-sports-500 focus:ring-2 focus:ring-sports-500/50 text-white flex-1 outline-none transition-all shadow-inner">
+                            <button id="generate-btn" class="px-6 py-4 rounded-xl bg-gradient-to-r from-sports-500 to-emerald-400 hover:from-sports-600 hover:to-emerald-500 text-white font-bold transition-all transform hover:scale-105 flex items-center justify-center gap-2 md:w-1/3 shadow-lg shadow-sports-500/30 shrink-0">
+                                ✨ AI 기획하기
+                            </button>
+                        </div>
                     </div>
-                    <div id="ai-error" class="hidden text-red-400 text-sm mb-6 bg-red-400/10 py-2 px-4 rounded-lg inline-block"></div>
+                    <div id="ai-error" class="hidden text-red-400 text-sm mb-6 bg-red-400/10 py-3 px-5 rounded-lg inline-block border border-red-400/20 text-left w-full max-w-2xl"></div>
 
                     <!-- Loading State -->
                     <div id="ai-loading" class="hidden flex-col items-center justify-center py-8">
@@ -387,7 +389,7 @@
         revealOnScroll(); // Trigger on load
 
         // --- Gemini AI API Integration ---
-        const apiKey = ""; // API Key is injected by the environment
+        const apiKey = ""; // API Key is injected by the environment inside Canvas
         const generateBtn = document.getElementById('generate-btn');
         const locationInput = document.getElementById('location-input');
         const aiLoading = document.getElementById('ai-loading');
@@ -414,7 +416,7 @@
             const location = locationInput.value.trim();
             
             if (!location) {
-                aiError.textContent = "❗ 기획을 원하는 도시나 동네 이름을 먼저 입력해주세요.";
+                aiError.innerHTML = "❗ <strong>기획을 원하는 도시나 동네 이름을 먼저 입력해주세요.</strong>";
                 aiError.classList.remove('hidden');
                 return;
             }
@@ -478,7 +480,7 @@
                 }
             } catch (error) {
                 aiLoading.classList.add('hidden');
-                aiError.textContent = "❗ AI 기획 중 연결 오류가 발생했습니다. 잠시 후 다시 시도해주세요.";
+                aiError.innerHTML = "❗ <strong>연결 오류가 발생했습니다. 잠시 후 다시 시도해주세요.</strong>";
                 aiError.classList.remove('hidden');
             } finally {
                 // Restore button state
