@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스포츠와 도시인문학 | 프로젝트 랜딩페이지</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    },
+                    colors: {
+                        urban: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            50: '#f8fafc',
+                        },
+                        sports: {
+                            500: '#10b981', // Emerald for vitality
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6)), url('https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-urban-50 text-urban-900 antialiased selection:bg-sports-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="activity" class="text-sports-500 h-8 w-8"></i>
+                    <span class="text-white font-bold text-xl tracking-tight">City<span class="text-sports-500">Pulse</span></span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-white hover:text-sports-500 transition-colors text-sm font-medium">스포츠와 도시인문학</a>
+                    <a href="#cases" class="text-white hover:text-sports-500 transition-colors text-sm font-medium">본받을 사례</a>
+                    <a href="#ideas" class="text-white hover:text-sports-500 transition-colors text-sm font-medium">추가 아이디어</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-urban-900 absolute w-full top-full left-0 border-t border-gray-800 shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="#" onclick="navigateHome('#about')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">스포츠와 도시인문학</a>
+                <a href="#" onclick="navigateHome('#cases')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">본받을 사례</a>
+                <a href="#" onclick="navigateHome('#ideas')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">추가 아이디어</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main View (Home) -->
+    <div id="home-view">
+        <!-- Hero Section -->
+        <section class="hero-bg h-screen flex items-center justify-center relative">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                도시의 맥박, <br class="md:hidden"> <span class="text-transparent bg-clip-text bg-gradient-to-r from-sports-500 to-emerald-300">스포츠로 뛰다</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-300 mb-10 font-light max-w-2xl mx-auto">
+                공간을 넘어 사람을 연결하는 매개체로서의 스포츠, 그리고 이를 품어내는 도시인문학적 고찰.
+            </p>
+            <a href="#about" class="inline-flex items-center gap-2 bg-sports-500 hover:bg-sports-600 text-white px-8 py-4 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg shadow-sports-500/30">
+                프로젝트 살펴보기
+                <i data-lucide="arrow-down" class="w-5 h-5 animate-bounce"></i>
+            </a>
+        </div>
+        <!-- Decorative Bottom Wave -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-[0]">
+            <svg class="relative block w-full h-[50px] md:h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C79.44,117.8,154.55,123.6,229.4,112.5C260.65,107.87,291.6,98.66,321.39,56.44Z" class="fill-urban-50"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Section 1: 스포츠와 도시인문학 -->
+    <section id="about" class="py-24 bg-urban-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-sports-600 font-semibold text-sm mb-6">
+                        <i data-lucide="book-open" class="w-4 h-4"></i> 핵심 개념
+                    </div>
+                    <h2 class="text-4xl font-bold mb-6 text-urban-900 leading-snug">스포츠와 도시인문학,<br>왜 중요한가?</h2>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        도시는 단순한 콘크리트 구조물의 집합이 아닙니다. 사람들의 삶과 이야기가 축적되는 인문학적 공간입니다. 여기서 <strong>스포츠</strong>는 언어와 계층을 넘어 시민들을 하나로 묶고, 죽어가는 유휴 공간에 생명력을 불어넣는 가장 강력한 도구가 됩니다.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-sports-500 rounded-full p-1"><i data-lucide="check" class="w-4 h-4 text-white"></i></div>
+                            <span class="text-gray-700"><strong>사회적 통합:</strong> 다양한 계층이 함께 어울리는 교류의 장 제공</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-sports-500 rounded-full p-1"><i data-lucide="check" class="w-4 h-4 text-white"></i></div>
+                            <span class="text-gray-700"><strong>공간의 재탄생:</strong> 방치된 도시 공간을 활력 있는 생활 체육 시설로 변모</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-sports-500 rounded-full p-1"><i data-lucide="check" class="w-4 h-4 text-white"></i></div>
+                            <span class="text-gray-700"><strong>신체와 정신의 회복:</strong> 삭막한 일상 속 시민들의 심리적 안정과 건강 증진</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="reveal relative">
+                    <!-- Image Collage -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="도심 속 농구장" class="rounded-2xl shadow-lg w-full h-64 object-cover transform translate-y-8">
+                        <img src="https://images.unsplash.com/photo-1530143311094-34d807799e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="강가에서 러닝하는 사람들" class="rounded-2xl shadow-lg w-full h-64 object-cover">
+                    </div>
+                    <!-- Decor element -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl z-10 max-w-xs border-l-4 border-sports-500">
+                        <p class="text-sm font-medium text-gray-800 italic">"스포츠는 도시에 영혼을 부여하는 가장 역동적인 예술이다."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: 본받을 사례 -->
+    <section id="cases" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-4xl font-bold mb-4 text-urban-900">본받을 만한 글로벌 사례</h2>
+                <p class="text-gray-500 text-lg">도시의 인프라와 스포츠가 결합하여 성공적인 인문학적 공간을 창출한 대표적인 모델들을 분석합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Case 1 -->
+                <div class="reveal bg-urban-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1539037116277-4db20d008114?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="바르셀로나 고딕 지구 거리" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-urban-900">스페인 바르셀로나</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">슈퍼블록 (Superilla) 프로젝트</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            차량 중심의 도로를 보행자와 자전거, 그리고 시민들의 생활 체육 공간으로 완전히 탈바꿈시킨 혁신적 사례. 이웃 간의 소통이 살아나고 아이들이 거리에서 뛰어노는 진정한 도시 인문학의 실현.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <button onclick="showAnalysis('barcelona')" class="text-sports-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">
+                                자세히 보기 <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="generateBehindStory('바르셀로나 슈퍼블록', 'bcn-btn', 'bcn-story')" id="bcn-btn" class="text-emerald-600 hover:text-emerald-700 font-semibold text-sm inline-flex items-center gap-1 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-full transition-colors">
+                                ✨ AI 비하인드
+                            </button>
+                        </div>
+                        <div id="bcn-story" class="hidden mt-4 p-4 bg-urban-900 text-gray-300 text-sm rounded-xl border border-gray-700 leading-relaxed shadow-inner"></div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="reveal bg-urban-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 group delay-100">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e2815cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="뉴욕 하이라인" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-urban-900">미국 뉴욕</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">하이라인 파크 (High Line)</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            도심의 버려진 고가 철도를 선형 공원과 산책로로 재생한 사례. 단순한 걷기를 넘어, 요가 클래스와 조깅 등 일상적 스포츠가 예술 및 자연과 결합하는 독특한 문화 공간.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <button onclick="showAnalysis('newyork')" class="text-sports-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">
+                                자세히 보기 <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="generateBehindStory('뉴욕 하이라인 파크', 'ny-btn', 'ny-story')" id="ny-btn" class="text-emerald-600 hover:text-emerald-700 font-semibold text-sm inline-flex items-center gap-1 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-full transition-colors">
+                                ✨ AI 비하인드
+                            </button>
+                        </div>
+                        <div id="ny-story" class="hidden mt-4 p-4 bg-urban-900 text-gray-300 text-sm rounded-xl border border-gray-700 leading-relaxed shadow-inner"></div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="reveal bg-urban-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 group delay-200">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1515824049870-7b949987895e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="서울 한강 시민공원 야경" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-urban-900">대한민국 서울</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">한강공원 수변 문화 활성화</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                            거대한 강줄기를 따라 조성된 자전거 도로, 농구장, 수영장 등. 스포츠 인프라를 통해 단절되었던 수변 공간을 천만 시민의 거대한 '어울림의 마당'으로 끌어올린 대표적 사례.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <button onclick="showAnalysis('seoul')" class="text-sports-600 font-semibold text-sm hover:underline inline-flex items-center gap-1">
+                                자세히 보기 <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="generateBehindStory('서울 한강공원 수변 문화', 'seoul-btn', 'seoul-story')" id="seoul-btn" class="text-emerald-600 hover:text-emerald-700 font-semibold text-sm inline-flex items-center gap-1 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-full transition-colors">
+                                ✨ AI 비하인드
+                            </button>
+                        </div>
+                        <div id="seoul-story" class="hidden mt-4 p-4 bg-urban-900 text-gray-300 text-sm rounded-xl border border-gray-700 leading-relaxed shadow-inner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: 추가 아이디어 제안 -->
+    <section id="ideas" class="py-24 bg-urban-900 text-white relative overflow-hidden">
+        <!-- Abstract Background Shapes -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-sports-500 opacity-10 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-blue-500 opacity-10 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div class="max-w-2xl">
+                    <span class="text-sports-500 font-medium tracking-wider text-sm mb-2 block">PROJECT PROPOSAL</span>
+                    <h2 class="text-4xl font-bold mb-4">우리의 도시에 적용할<br>새로운 <span class="text-transparent bg-clip-text bg-gradient-to-r from-sports-400 to-teal-300">추가 아이디어</span></h2>
+                    <p class="text-gray-400">수업을 통해 도출한, 당장 우리 도시에 적용해 볼 수 있는 창의적인 솔루션들입니다.</p>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Idea 1 -->
+                <div class="reveal bg-urban-800 border border-gray-700 rounded-2xl p-6 md:p-8 hover:border-sports-500 transition-colors duration-300 flex flex-col md:flex-row gap-6 items-center">
+                    <div class="bg-sports-500/10 p-4 rounded-xl shrink-0">
+                        <i data-lucide="map" class="w-12 h-12 text-sports-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">스토리텔링 러닝 투어 (Story-Running)</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            도시의 역사적 유적지나 골목길을 연결하는 5km~10km 러닝 코스를 개발하고, GPS 기반 앱을 통해 특정 구간 통과 시 해당 장소의 역사와 인문학적 스토리를 오디오북처럼 들려주는 시스템 구축. '운동'과 '도시 역사 학습'을 결합한 새로운 관광/생활 체육 모델.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Idea 2 -->
+                <div class="reveal bg-urban-800 border border-gray-700 rounded-2xl p-6 md:p-8 hover:border-sports-500 transition-colors duration-300 flex flex-col md:flex-row gap-6 items-center delay-100">
+                    <div class="bg-blue-500/10 p-4 rounded-xl shrink-0">
+                        <i data-lucide="box" class="w-12 h-12 text-blue-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">도심 속 팝업 스포츠 큐브 (Pop-up Sports Cube)</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            재개발 대기 중인 유휴 공터나 넓은 광장에 이동식, 조립식 컨테이너 형태의 '스포츠 큐브'를 한시적으로 설치. 미니 탁구장, 실내 암벽등반, 스케이트보드 하프파이프 등을 제공하여 자투리 공간을 청년층의 스트리트 스포츠 성지로 임시 탈바꿈.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Idea 3 -->
+                <div class="reveal bg-urban-800 border border-gray-700 rounded-2xl p-6 md:p-8 hover:border-sports-500 transition-colors duration-300 flex flex-col md:flex-row gap-6 items-center delay-200">
+                    <div class="bg-purple-500/10 p-4 rounded-xl shrink-0">
+                        <i data-lucide="users" class="w-12 h-12 text-purple-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">세대 공감 '실버-키즈 플레이 그라운드'</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            기존의 어린이 전용 놀이터에 시니어 계층을 위한 저강도 체육 시설(파크골프 퍼팅장, 게이트볼 라인 등)을 인접하게 재설계. 아이들과 노인들이 한 공간에서 각자의 신체 활동을 즐기며 시각적, 정서적으로 교류할 수 있는 포용적 도시 설계.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✨ AI Idea Generator Section -->
+            <div class="mt-20 bg-urban-800 border-2 border-sports-500/30 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden reveal">
+                <div class="absolute top-0 right-0 p-6 opacity-20"><i data-lucide="sparkles" class="w-24 h-24 text-sports-400"></i></div>
+                <div class="relative z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sports-500/20 text-sports-400 font-semibold text-sm mb-4 border border-sports-500/30">
+                        <i data-lucide="bot" class="w-4 h-4"></i> Gemini AI 통합
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4">✨ 우리 동네 맞춤형 프로젝트 생성기</h3>
+                    <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+                        당신이 살고 있는 도시나 동네 이름을 입력해보세요. AI가 지역 특성을 분석하여 해당 지역에 딱 맞는 <strong class="text-sports-400">스포츠 인문학 재생 프로젝트</strong>를 즉석에서 기획해 드립니다.
+                    </p>
+                    
+                    <div class="flex flex-col md:flex-row gap-4 justify-center max-w-2xl mx-auto mb-6">
+                        <input type="text" id="location-input" placeholder="예: 부산 해운대구, 서울 성수동, 제주도..." class="px-6 py-4 rounded-xl bg-urban-900 border border-gray-600 focus:border-sports-500 focus:ring-2 focus:ring-sports-500/50 text-white w-full md:w-2/3 outline-none transition-all shadow-inner">
+                        <button id="generate-btn" class="px-6 py-4 rounded-xl bg-gradient-to-r from-sports-500 to-emerald-400 hover:from-sports-600 hover:to-emerald-500 text-white font-bold transition-all transform hover:scale-105 flex items-center justify-center gap-2 md:w-1/3 shadow-lg shadow-sports-500/30">
+                            ✨ AI 기획하기
+                        </button>
+                    </div>
+                    <div id="ai-error" class="hidden text-red-400 text-sm mb-6 bg-red-400/10 py-2 px-4 rounded-lg inline-block"></div>
+
+                    <!-- Loading State -->
+                    <div id="ai-loading" class="hidden flex-col items-center justify-center py-8">
+                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-sports-500 mb-4"></div>
+                        <p class="text-sports-400 animate-pulse font-medium">Gemini AI가 도시 데이터를 분석하고 혁신적인 아이디어를 구상 중입니다...</p>
+                    </div>
+
+                    <!-- Result Card -->
+                    <div id="ai-result" class="hidden bg-urban-900 p-6 md:p-8 rounded-xl border border-gray-700 text-left max-w-3xl mx-auto shadow-2xl relative mt-8 transform transition-all duration-500">
+                        <div class="absolute -top-4 -left-4 bg-sports-500 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg">
+                            <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                        </div>
+                        <h4 id="ai-title" class="text-2xl font-bold text-white mb-6 ml-4 text-transparent bg-clip-text bg-gradient-to-r from-sports-400 to-emerald-200"></h4>
+                        <div class="space-y-6">
+                            <div class="bg-urban-800/50 p-5 rounded-lg border border-gray-700/50">
+                                <span class="flex items-center gap-2 text-sports-400 font-semibold text-sm mb-2">
+                                    <i data-lucide="target" class="w-4 h-4"></i> 프로젝트 컨셉
+                                </span>
+                                <p id="ai-concept" class="text-gray-300 leading-relaxed"></p>
+                            </div>
+                            <div class="bg-urban-800/50 p-5 rounded-lg border border-gray-700/50">
+                                <span class="flex items-center gap-2 text-blue-400 font-semibold text-sm mb-2">
+                                    <i data-lucide="trending-up" class="w-4 h-4"></i> 기대 효과
+                                </span>
+                                <p id="ai-effect" class="text-gray-300 leading-relaxed"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    </div> <!-- End of home-view -->
+
+    <!-- Analysis Views (Hidden by default) -->
+    <div id="analysis-views" class="hidden pt-24 pb-16 min-h-screen bg-urban-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button onclick="navigateHome()" class="mb-8 inline-flex items-center gap-2 text-gray-500 hover:text-sports-600 transition-colors font-medium">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i> 메인으로 돌아가기
+            </button>
+            
+            <!-- Barcelona Analysis -->
+            <div id="analysis-barcelona" class="hidden analysis-content">
+                <span class="text-sports-500 font-semibold tracking-wider text-sm mb-2 block">URBAN HUMANITIES ANALYSIS</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-urban-900 mb-6 leading-tight">바르셀로나 슈퍼블록 :<br>보행과 일상 스포츠의 해방구</h1>
+                
+                <img src="https://images.unsplash.com/photo-1539037116277-4db20d008114?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="바르셀로나 슈퍼블록 상세" class="w-full h-80 object-cover rounded-2xl shadow-lg mb-10">
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-sports-100 p-3 rounded-full text-sports-600"><i data-lucide="microscope" class="w-6 h-6"></i></div>
+                        <h2 class="text-2xl font-bold">도시인문학 분석가의 시선</h2>
+                    </div>
+                    <div class="prose prose-lg text-gray-600 space-y-4">
+                        <p><strong>"도로를 점령했던 자동차를 밀어내고, 그 자리에 이웃 간의 대화와 아이들의 공놀이를 채워 넣었습니다."</strong></p>
+                        <p>바르셀로나의 '슈퍼블록(Superilla)' 프로젝트는 단순한 교통 통제 정책이 아닙니다. 이는 잃어버렸던 '광장'의 기능과 '신체 활동의 자유'를 시민에게 돌려준 거대한 공간 혁명입니다.</p>
+                        <p>산업화 이후 도시는 자동차의 효율성을 중심으로 재편되었습니다. 이 과정에서 인간은 보도로 밀려났고, 도시 내에서 자발적인 스포츠나 놀이가 발생할 공간은 소멸했습니다. 슈퍼블록은 9개의 블록을 하나로 묶어 내부 차량 통행을 제한함으로써, 아스팔트 도로를 조깅 트랙이자 길거리 농구장, 그리고 이웃이 모이는 배드민턴 코트로 변모시켰습니다.</p>
+                        <p class="p-4 bg-emerald-50 border-l-4 border-sports-500 rounded-r-lg mt-6 text-urban-800">
+                            <strong>핵심 시사점:</strong> 스포츠 인프라는 반드시 거대한 경기장일 필요가 없습니다. 안전하게 걷고 뛸 수 있는 '비워진 거리' 자체가 훌륭한 생활 체육 공간이자, 공동체를 복원하는 인문학적 매개체가 됩니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New York Analysis -->
+            <div id="analysis-newyork" class="hidden analysis-content">
+                <span class="text-blue-500 font-semibold tracking-wider text-sm mb-2 block">URBAN HUMANITIES ANALYSIS</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-urban-900 mb-6 leading-tight">뉴욕 하이라인 :<br>수직의 도시에서 선형의 쉼표를 그리다</h1>
+                
+                <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e2815cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="뉴욕 하이라인 상세" class="w-full h-80 object-cover rounded-2xl shadow-lg mb-10">
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-blue-100 p-3 rounded-full text-blue-600"><i data-lucide="microscope" class="w-6 h-6"></i></div>
+                        <h2 class="text-2xl font-bold">도시인문학 분석가의 시선</h2>
+                    </div>
+                    <div class="prose prose-lg text-gray-600 space-y-4">
+                        <p><strong>"쓸모를 다한 고가 철도를 부수지 않고 걷기 위한 길로 재생했습니다."</strong></p>
+                        <p>뉴욕 맨해튼은 자본주의의 정점이자 숨 막히는 수직의 도시입니다. 하이라인은 이 빽빽한 마천루 사이에서 유일하게 허락된 '선형의 쉼표'입니다. 산업화 시대의 흉물이었던 버려진 철도는 보존과 조경이라는 인문학적 결정을 통해 전 세계적인 랜드마크가 되었습니다.</p>
+                        <p>도시인문학적 관점에서 걷기(Walking)와 조깅(Jogging)은 가장 원초적이고 평등한 스포츠입니다. 하이라인은 지상 교통의 방해 없이 연속적인 보행을 가능하게 하며, 자연과 예술을 감상하며 땀을 흘리는 복합적인 경험을 제공합니다. 이는 고립된 뉴요커들에게 연대감과 심리적 치유를 제공하는 강력한 사회적 처방전으로 작용하고 있습니다.</p>
+                        <p class="p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r-lg mt-6 text-urban-800">
+                            <strong>핵심 시사점:</strong> 도시의 버려진 유휴 공간도 시각을 바꾸면 훌륭한 시민의 건강 인프라로 재생될 수 있습니다. 걷기 좋은 도시는 곧 건강한 정신이 깃드는 도시입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seoul Analysis -->
+            <div id="analysis-seoul" class="hidden analysis-content">
+                <span class="text-purple-500 font-semibold tracking-wider text-sm mb-2 block">URBAN HUMANITIES ANALYSIS</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-urban-900 mb-6 leading-tight">서울 한강공원 :<br>경계의 강에서 통합의 거실로</h1>
+                
+                <img src="https://images.unsplash.com/photo-1515824049870-7b949987895e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="서울 한강공원 상세" class="w-full h-80 object-cover rounded-2xl shadow-lg mb-10">
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-purple-100 p-3 rounded-full text-purple-600"><i data-lucide="microscope" class="w-6 h-6"></i></div>
+                        <h2 class="text-2xl font-bold">도시인문학 분석가의 시선</h2>
+                    </div>
+                    <div class="prose prose-lg text-gray-600 space-y-4">
+                        <p><strong>"과거 남북을 가르는 물리적 경계였던 한강은, 이제 천만 시민이 얽히는 거대한 거실이 되었습니다."</strong></p>
+                        <p>과거의 한강은 홍수를 막기 위한 '치수(治水)'의 대상이거나, 급속한 경제성장의 배경('한강의 기적')으로만 여겨졌습니다. 하지만 시민공원이 조성되고 다양한 체육 시설이 들어서면서, 한강의 인문학적 의미는 완전히 뒤바뀌었습니다.</p>
+                        <p>수백 킬로미터에 달하는 자전거 도로, 농구 코트, 러닝 트랙, 수상 스포츠 시설은 강남과 강북, 부유층과 서민의 경계를 지워냅니다. 비싼 회원권 없이도 누구나 바람을 맞으며 땀 흘릴 수 있는 한강공원은 현대 서울에서 가장 민주적이고 포용적인 스포츠 인문학 공간입니다. 신체 활동을 매개로 타인과 우연히 교류하고, 삭막한 도심 속에서 숨통을 틔우는 해방구 역할을 수행합니다.</p>
+                        <p class="p-4 bg-purple-50 border-l-4 border-purple-500 rounded-r-lg mt-6 text-urban-800">
+                            <strong>핵심 시사점:</strong> 수변 공간과 스포츠 인프라의 결합은 도시의 지리적 단절을 극복하고 사회적 통합을 이루어내는 훌륭한 매개체가 됩니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-center items-center gap-2 mb-4">
+                <i data-lucide="activity" class="text-sports-500 h-6 w-6"></i>
+                <span class="text-white font-bold text-xl tracking-tight">City<span class="text-sports-500">Pulse</span></span>
+            </div>
+            <p class="mb-4 text-sm">2026학년도 1학기 「스포츠와 도시인문학」 과제 제출용 랜딩페이지</p>
+            <div class="flex justify-center gap-4 mb-8">
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">작성자: 홍길동 (학번: 20260000)</span>
+                <span class="px-3 py-1 bg-gray-800 rounded-full text-xs">지도교수: 김도시 교수님</span>
+            </div>
+            <p class="text-xs">&copy; 2026 CityPulse Project. All rights reserved. Designed for Academic Purpose.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-urban-900', 'shadow-lg');
+                navbar.classList.remove('bg-transparent', 'py-4');
+                navbar.classList.add('py-3');
+            } else {
+                navbar.classList.remove('bg-urban-900', 'shadow-lg');
+                navbar.classList.add('bg-transparent', 'py-4');
+                navbar.classList.remove('py-3');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // SPA Navigation Logic
+        function showAnalysis(city) {
+            // Hide main view
+            document.getElementById('home-view').classList.add('hidden');
+            
+            // Show analysis container
+            document.getElementById('analysis-views').classList.remove('hidden');
+            
+            // Hide all analysis contents
+            const contents = document.querySelectorAll('.analysis-content');
+            contents.forEach(el => el.classList.add('hidden'));
+            
+            // Show selected city content
+            document.getElementById(`analysis-${city}`).classList.remove('hidden');
+            
+            // Re-initialize icons inside new visible elements just in case
+            lucide.createIcons();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function navigateHome(targetHash = null) {
+            // Show main view
+            document.getElementById('home-view').classList.remove('hidden');
+            
+            // Hide analysis container
+            document.getElementById('analysis-views').classList.add('hidden');
+            
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+
+            // Scroll logic
+            if (targetHash) {
+                // Wait a tiny bit for display block to render before calculating offset
+                setTimeout(() => {
+                    const targetEl = document.querySelector(targetHash);
+                    if (targetEl) {
+                        const navHeight = document.getElementById('navbar').offsetHeight;
+                        const elementPosition = targetEl.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                }, 10);
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Fix native anchor links in desktop menu to use navigateHome function
+        document.querySelectorAll('.md\\:flex a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                navigateHome(targetId);
+            });
+        });
+
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Trigger on load
+
+        // --- Gemini AI API Integration ---
+        const apiKey = ""; // API Key is injected by the environment
+        const generateBtn = document.getElementById('generate-btn');
+        const locationInput = document.getElementById('location-input');
+        const aiLoading = document.getElementById('ai-loading');
+        const aiResult = document.getElementById('ai-result');
+        const aiError = document.getElementById('ai-error');
+
+        // Exponential backoff strategy for API resilience
+        async function fetchWithRetry(url, options, maxRetries = 5) {
+            let delay = 1000;
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    return await response.json();
+                } catch (error) {
+                    if (i === maxRetries - 1) throw error;
+                    await new Promise(res => setTimeout(res, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        generateBtn.addEventListener('click', async () => {
+            const location = locationInput.value.trim();
+            
+            if (!location) {
+                aiError.textContent = "❗ 기획을 원하는 도시나 동네 이름을 먼저 입력해주세요.";
+                aiError.classList.remove('hidden');
+                return;
+            }
+
+            // Reset UI States
+            aiError.classList.add('hidden');
+            aiResult.classList.add('hidden');
+            aiLoading.classList.remove('hidden');
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = '<div class="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div> 기획 중...';
+            generateBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
+            const promptText = `당신은 세계적인 도시 계획가이자 스포츠 인문학 전문가입니다. 
+            사용자가 입력한 도시/지역은 '${location}' 입니다. 
+            이 지역의 특성(지리, 문화, 랜드마크 등)을 창의적으로 고려하여, '스포츠'와 '도시 인문학'을 결합한 독창적인 도시 재생 또는 지역 활성화 아이디어를 1개 기획해주세요.`;
+
+            try {
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+                
+                // Constructing the payload requesting structured JSON output
+                const payload = {
+                    contents: [{ parts: [{ text: promptText }] }],
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "OBJECT",
+                            properties: {
+                                title: { type: "STRING", description: "프로젝트의 멋진 제목" },
+                                concept: { type: "STRING", description: "프로젝트의 구체적인 실행 컨셉 (3~4문장)" },
+                                effect: { type: "STRING", description: "도시 인문학적 관점에서의 기대 효과 (2~3문장)" }
+                            },
+                            required: ["title", "concept", "effect"]
+                        }
+                    }
+                };
+
+                const data = await fetchWithRetry(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                
+                if (responseText) {
+                    const resultJson = JSON.parse(responseText);
+                    
+                    // Update DOM with AI generated content
+                    document.getElementById('ai-title').textContent = resultJson.title;
+                    document.getElementById('ai-concept').textContent = resultJson.concept;
+                    document.getElementById('ai-effect').textContent = resultJson.effect;
+                    
+                    aiLoading.classList.add('hidden');
+                    aiResult.classList.remove('hidden');
+                    
+                    // Add a little pop animation to the result card
+                    aiResult.classList.remove('scale-95', 'opacity-0');
+                    aiResult.classList.add('scale-100', 'opacity-100');
+                } else {
+                    throw new Error("Invalid response structure from AI");
+                }
+            } catch (error) {
+                aiLoading.classList.add('hidden');
+                aiError.textContent = "❗ AI 기획 중 연결 오류가 발생했습니다. 잠시 후 다시 시도해주세요.";
+                aiError.classList.remove('hidden');
+            } finally {
+                // Restore button state
+                generateBtn.disabled = false;
+                generateBtn.innerHTML = '✨ AI 기획하기';
+                generateBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+            }
+        });
+
+        // --- AI Behind Story Function ---
+        async function generateBehindStory(topic, btnId, resultId) {
+            const btn = document.getElementById(btnId);
+            const resultDiv = document.getElementById(resultId);
+            
+            // Toggle visibility if already showing
+            if (!resultDiv.classList.contains('hidden') && resultDiv.innerHTML.indexOf('animate-pulse') === -1 && btn.innerHTML.indexOf('스토리 닫기') !== -1) {
+                resultDiv.classList.add('hidden');
+                btn.innerHTML = '✨ AI 비하인드';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<div class="animate-spin rounded-full h-4 w-4 border-b-2 border-emerald-600"></div> 탐색 중...';
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = '<span class="animate-pulse text-emerald-400">Gemini가 숨겨진 인문학적 이야기를 찾고 있습니다...</span>';
+
+            const promptText = `당신은 세계적인 도시인문학 전문가입니다. '${topic}'의 체육/여가 공간 재생과 관련된 대중이 잘 모르는 흥미로운 비하인드 스토리나 숨겨진 인문학적 가치를 딱 2문장으로 간결하게 설명해주세요.`;
+
+            try {
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+                const payload = {
+                    contents: [{ parts: [{ text: promptText }] }]
+                };
+
+                const data = await fetchWithRetry(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                
+                if (responseText) {
+                    resultDiv.innerHTML = `<strong class="text-emerald-400 block mb-1">✨ AI 인사이트</strong>${responseText}`;
+                } else {
+                    throw new Error("Invalid response");
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="text-red-400">이야기를 불러오는 데 실패했습니다. 다시 시도해주세요.</span>`;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '✨ 스토리 닫기';
+            }
+        }
+    </script>
+</body>
+</html>
