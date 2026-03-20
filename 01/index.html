@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주나라 천명 사상</title>
+    <!-- Tailwind CSS 연동 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide 아이콘 연동 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        /* 스크롤바 커스텀 (선택사항) */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-100 font-sans text-slate-900 selection:bg-amber-200">
+
+    <!-- 헤더 부분 -->
+    <header class="bg-slate-900 text-white py-12 px-6 shadow-md relative overflow-hidden">
+        <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
+            <i data-lucide="landmark" class="w-[400px] h-[400px]"></i>
+        </div>
+        <div class="max-w-5xl mx-auto relative z-10 flex flex-col">
+            <!-- 홈 버튼 -->
+            <a href="../index.html" class="inline-flex items-center px-4 py-2 bg-slate-800/80 hover:bg-slate-700 text-white rounded-full mb-6 transition-colors shadow-sm text-sm border border-slate-700 backdrop-blur-sm w-fit">
+                <i data-lucide="home" class="w-4 h-4 mr-2"></i>
+                홈
+            </a>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">주나라 천명(天命) 사상</h1>
+            <p class="text-xl md:text-2xl font-light text-amber-400">통치자의 도덕적 책무와 거버넌스 분석</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto py-8 px-6 flex flex-col md:flex-row gap-8">
+        <!-- 네비게이션 사이드바 -->
+        <aside class="w-full md:w-64 flex-shrink-0">
+            <nav class="bg-white rounded-xl shadow-sm border border-slate-200 p-2 sticky top-8">
+                <ul class="space-y-1" id="nav-menu">
+                    <li>
+                        <button data-tab="intro" class="nav-btn w-full flex items-center p-3 rounded-lg text-left transition-colors font-medium bg-amber-100 text-amber-800">
+                            <i data-lucide="book-open" class="w-[18px] h-[18px] mr-3"></i> 1. 천명 사상 대두
+                        </button>
+                    </li>
+                    <li>
+                        <button data-tab="compare" class="nav-btn w-full flex items-center p-3 rounded-lg text-left transition-colors font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                            <i data-lucide="crown" class="w-[18px] h-[18px] mr-3"></i> 2. 권위의 진화
+                        </button>
+                    </li>
+                    <li>
+                        <button data-tab="conditions" class="nav-btn w-full flex items-center p-3 rounded-lg text-left transition-colors font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                            <i data-lucide="scale" class="w-[18px] h-[18px] mr-3"></i> 3. 천명의 조건
+                        </button>
+                    </li>
+                    <li>
+                        <button data-tab="ethics" class="nav-btn w-full flex items-center p-3 rounded-lg text-left transition-colors font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                            <i data-lucide="alert-triangle" class="w-[18px] h-[18px] mr-3"></i> 4. 윤리 딜레마 문제
+                        </button>
+                    </li>
+                    <li>
+                        <button data-tab="conclusion" class="nav-btn w-full flex items-center p-3 rounded-lg text-left transition-colors font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                            <i data-lucide="landmark" class="w-[18px] h-[18px] mr-3"></i> 5. 현대적 시사점
+                        </button>
+                    </li>
+                </ul>
+                
+                <!-- 인포그래픽 보기 버튼 -->
+                <div class="mt-6 border-t border-slate-100 pt-4">
+                    <button id="btn-infographic" class="w-full flex items-center justify-center p-3 rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition-colors font-bold shadow-md">
+                        <i data-lucide="image" class="w-[18px] h-[18px] mr-2"></i>
+                        인포그래픽 보기
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 메인 콘텐츠 영역 -->
+        <section class="flex-1 bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-200 min-h-[600px] relative overflow-hidden">
+            
+            <!-- 1. 서론 탭 -->
+            <div id="tab-intro" class="tab-content space-y-6 animate-fadeIn block">
+                <h2 class="text-3xl font-bold border-b-2 border-amber-600 pb-2 text-slate-800">1. 천명 사상의 대두</h2>
+                <div class="bg-slate-50 p-6 rounded-xl shadow-inner text-lg leading-relaxed text-slate-700">
+                    <p class="mb-4">
+                        서주(西周) 초기는 권력의 정당성이 <strong>'혈통과 무력'에서 '윤리적 가치'로 이동</strong>한 거대한 철학적 변곡점입니다.
+                    </p>
+                    <p class="mb-4">
+                        은(상)나라를 무너뜨린 주나라는 찬탈을 정당화하기 위해 통치자를 <strong>'하늘의 대행자'</strong>로 설정했습니다.
+                    </p>
+                    <div class="bg-amber-100 p-4 rounded-lg border-l-4 border-amber-500 italic">
+                        "하(夏)나라 임금이 죄가 많아 하늘을 대신하여 그를 치려는 것이다... 나는 상제를 두려워하니 감히 그를 처벌하지 않을 수 없다" <br/>
+                        <span class="text-sm text-amber-800 mt-2 block">- 『서경(書經)』 「상서(商書)·탕서(湯誓)」</span>
+                    </div>
+                    <p class="mt-4">
+                        이로써 리더십의 본질은 임의적인 권력 행사가 아닌 <strong>공의(公義)의 집행</strong>이 되었습니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. 비교 탭 -->
+            <div id="tab-compare" class="tab-content space-y-6 animate-fadeIn hidden">
+                <h2 class="text-3xl font-bold border-b-2 border-amber-600 pb-2 text-slate-800">2. 권위의 원천 변화</h2>
+                <p class="text-lg text-slate-600 mb-6">아래 버튼을 클릭하여 신성한 권위의 원천이 어떻게 진화했는지 확인해 보세요.</p>
+                
+                <div class="flex justify-center space-x-4 mb-8">
+                    <button id="btn-shangdi" class="px-6 py-3 rounded-full font-bold transition-all bg-slate-800 text-white shadow-lg scale-105">
+                        과거: 상제 (上帝)
+                    </button>
+                    <button id="btn-tian" class="px-6 py-3 rounded-full font-bold transition-all bg-gray-200 text-gray-600 hover:bg-gray-300">
+                        주나라: 천 (天)
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-xl border border-slate-100 transform transition-all min-h-[250px] flex flex-col justify-center">
+                    <h3 id="compare-title" class="text-2xl font-bold text-center mb-6 text-slate-800">상제 (上帝)</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-amber-100 p-2 rounded-lg mr-4 text-amber-700"><i data-lucide="users" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-700">성격</h4>
+                                <p id="compare-nature" class="text-slate-600">인격신적 존재 (Personal Deity)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-amber-100 p-2 rounded-lg mr-4 text-amber-700"><i data-lucide="crown" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-700">권위의 원천</h4>
+                                <p id="compare-source" class="text-slate-600">조상신과 연결된 가변적 의지</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-amber-100 p-2 rounded-lg mr-4 text-amber-700"><i data-lucide="scale" class="w-6 h-6"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-700">통치 의미</h4>
+                                <p id="compare-meaning" class="text-slate-600">숭배와 경외를 통한 권위 확보 (임의적 권력)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 조건 탭 -->
+            <div id="tab-conditions" class="tab-content space-y-6 animate-fadeIn hidden">
+                <h2 class="text-3xl font-bold border-b-2 border-amber-600 pb-2 text-slate-800">3. 천명의 3대 조건</h2>
+                <p class="text-lg text-slate-600">주나라 거버넌스의 핵심 혁신은 권력이 <strong>'가변적 위탁 권한(Fiduciary Duty)'</strong>임을 명시한 것입니다.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-500 hover:shadow-xl transition-shadow">
+                        <i data-lucide="heart" class="text-red-500 mb-4 w-10 h-10"></i>
+                        <h3 class="text-xl font-bold mb-2">경천경민 (敬天敬民)</h3>
+                        <p class="text-slate-600">하늘과 백성에 대해 극진한 공경심과 엄숙한 책임감을 유지해야 합니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-amber-500 hover:shadow-xl transition-shadow">
+                        <i data-lucide="alert-triangle" class="text-amber-500 mb-4 w-10 h-10"></i>
+                        <h3 class="text-xl font-bold mb-2">명의 가변성 인식</h3>
+                        <p class="text-slate-600">천명은 보존하기 쉽지 않으며(難保), 늘 자각해야 합니다. 조건 미충족시 즉각 폐지(Mandate Revocation)됩니다.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-emerald-500 hover:shadow-xl transition-shadow">
+                        <i data-lucide="book-open" class="text-emerald-500 mb-4 w-10 h-10"></i>
+                        <h3 class="text-xl font-bold mb-2">덕(德)의 계승</h3>
+                        <p class="text-slate-600">스스로 도덕적 본보기가 되어 '밝은 덕'을 실천해야 통치 권력의 생명력을 연장할 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. 윤리 문제 탭 -->
+            <div id="tab-ethics" class="tab-content space-y-6 animate-fadeIn hidden">
+                <h2 class="text-3xl font-bold border-b-2 border-amber-600 pb-2 text-slate-800 flex items-center">
+                    <i data-lucide="scale" class="mr-3 text-amber-600 w-8 h-8"></i>
+                    참여형 딜레마: 리더의 도덕적 책무
+                </h2>
+                
+                <div class="bg-slate-800 text-white p-6 rounded-xl shadow-lg mb-8">
+                    <h3 class="text-xl font-bold mb-4 text-amber-400">상황 부여 (Case Study)</h3>
+                    <p class="text-lg leading-relaxed" id="ethics-question"></p>
+                </div>
+
+                <div class="space-y-4" id="ethics-options">
+                    <!-- 자바스크립트로 렌더링 됩니다 -->
+                </div>
+
+                <div id="ethics-next-container" class="mt-8 text-center animate-fadeIn hidden">
+                    <button id="btn-go-conclusion" class="bg-amber-600 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-700 transition-colors inline-flex items-center">
+                        현대적 시사점 보기 <i data-lucide="chevron-right" class="ml-2 w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 5. 결론 탭 -->
+            <div id="tab-conclusion" class="tab-content space-y-6 animate-fadeIn hidden">
+                <h2 class="text-3xl font-bold border-b-2 border-amber-600 pb-2 text-slate-800">결론: 현대적 거버넌스를 위한 시사점</h2>
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 rounded-2xl shadow-xl">
+                    <p class="text-lg mb-8 text-slate-300">
+                        고대 주나라의 천명 사상은 수천 년 전의 유산이 아니라, 권력의 무게와 책임의 본질을 고민하는 현대의 모든 리더가 회귀해야 할 가장 근본적인 이정표입니다.
+                    </p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="bg-amber-500/20 p-3 rounded-full mr-4 text-amber-400"><i data-lucide="users" class="w-6 h-6"></i></div>
+                            <div>
+                                <h3 class="text-xl font-bold text-amber-400 mb-1">투명성과 공공의 합의 (Transparency & Consent)</h3>
+                                <p class="text-slate-300">리더의 권한은 구성원(민심)으로부터 위탁된 것임을 인지하고 공공의 이익을 위한 의사결정 체계를 구축해야 합니다.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-amber-500/20 p-3 rounded-full mr-4 text-amber-400"><i data-lucide="scale" class="w-6 h-6"></i></div>
+                            <div>
+                                <h3 class="text-xl font-bold text-amber-400 mb-1">윤리적 지속가능성 (Ethical Sustainability)</h3>
+                                <p class="text-slate-300">권력은 소모되는 자원이며, 기술적 역량을 넘어선 리더의 '덕(德)'과 도덕적 성찰을 통해서만 갱신될 수 있습니다.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-amber-500/20 p-3 rounded-full mr-4 text-amber-400"><i data-lucide="landmark" class="w-6 h-6"></i></div>
+                            <div>
+                                <h3 class="text-xl font-bold text-amber-400 mb-1">문화적 통합을 통한 갈등 관리 (Cultural Integration)</h3>
+                                <p class="text-slate-300">규율에 의존한 통제가 아닌, 공유된 가치와 문화(과거의 '제례')를 통해 일체감을 형성하는 감성적 거버넌스가 필요합니다.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <!-- 인포그래픽 팝업 (모달) -->
+    <div id="infographic-modal" class="fixed inset-0 z-50 items-center justify-center bg-black/70 p-4 md:p-8 animate-fadeIn hidden">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-full overflow-y-auto relative shadow-2xl flex flex-col" id="modal-content">
+            <div class="sticky top-0 right-0 p-4 flex justify-between items-center bg-white border-b border-slate-100 z-10">
+                <h3 class="text-xl font-bold text-slate-800">주나라 천명 사상 인포그래픽</h3>
+                <button id="btn-close-modal" class="p-2 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-800 transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-6 flex justify-center items-center bg-slate-50 min-h-[300px]">
+                <img 
+                    src="unnamed.png" 
+                    alt="천명 사상 인포그래픽" 
+                    class="max-w-full h-auto rounded-lg shadow-sm"
+                    onerror="this.onerror=null; this.src='https://via.placeholder.com/800x600.png?text=Infographic+Image+(unnamed.png)';"
+                />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 초기 아이콘 렌더링
+            lucide.createIcons();
+
+            // === 상태 변수 ===
+            let activeTab = 'intro';
+            let compareView = 'shangdi';
+            let selectedEthicalAnswer = null;
+
+            // === 데이터 ===
+            const comparisonData = {
+                shangdi: {
+                    title: '상제 (上帝)',
+                    nature: '인격신적 존재 (Personal Deity)',
+                    source: '조상신과 연결된 가변적 의지',
+                    meaning: '숭배와 경외를 통한 권위 확보 (임의적 권력)'
+                },
+                tian: {
+                    title: '천 (天)',
+                    nature: '비인격적·우주적 질서 (Impersonal Order)',
+                    source: '보편적·도덕적 법칙과 신성한 힘',
+                    meaning: '도덕적 행위를 통한 합법화 (Legitimacy 확보)'
+                }
+            };
+
+            const ethicalDilemma = {
+                question: "당신은 거대 혁신 기업의 최고경영자(현대의 군주)입니다. 최근 출시한 서비스가 막대한 수익을 내고 있지만, 알고리즘의 결함으로 인해 특정 소외계층에게 심각한 불이익을 주고 있다는 사실을 내부 보고를 통해 알게 되었습니다. 당신의 선택은?",
+                options: [
+                    {
+                        id: 'A',
+                        text: "회사의 존립과 주주 이익이 최우선이다. 알고리즘 결함을 철저히 은폐하고 현재의 막대한 수익(성과)을 유지한다.",
+                        feedback: "오답입니다. 주나라 철학에 따르면 '천명은 보존하기 쉽지 않으며(難保), 의지하기 힘든 것(不可信)'입니다. 성과(Performance)에만 집착하여 백성(사용자)을 기만하는 것은 '경천경민(敬天敬民)'에 위배되며, 결국 천명(시장과 사회의 신뢰)을 잃고 '즉각 폐지(Mandate Revocation)' 당할 것입니다.",
+                        correct: false
+                    },
+                    {
+                        id: 'B',
+                        text: "막대한 단기적 손실과 주주들의 비난을 감수하더라도, 즉각 사실을 대중에게 투명하게 공개하고 알고리즘을 폐기한 뒤 피해를 보상한다.",
+                        feedback: "정답입니다! 이는 군주가 '밝은 덕(明德)'을 실천하는 행위입니다. 하늘이 통치자를 세운 것은 '백성의 안녕을 위한 공공 서비스'를 위함입니다. 단기적 위기가 오더라도 윤리적 지속가능성과 공의(公義)를 실천함으로써 장기적인 통치 정당성을 확보하는 진정한 '덕치'입니다.",
+                        correct: true
+                    },
+                    {
+                        id: 'C',
+                        text: "대중은 모를 것이다. 겉으로는 소외계층을 위한 대규모 기부 캠페인(형식적 제례)을 열어 이미지를 포장하고, 서비스는 그대로 둔다.",
+                        feedback: "오답입니다. 주나라의 제례는 '마치 신이 보고 있는 것처럼(如在)' 주관적 성실성(Sincerity)을 다해야 합니다. 진정성 없는 위선적 대처는 '사악한 비방'을 낳으며 갈등을 증폭시킵니다. 도덕성이 결여된 권력은 언제든 전복될 수 있습니다.",
+                        correct: false
+                    }
+                ]
+            };
+
+            // === 탭 이동 로직 ===
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function switchTab(tabId) {
+                activeTab = tabId;
+                
+                // 네비게이션 스타일 업데이트
+                navButtons.forEach(btn => {
+                    if (btn.dataset.tab === tabId) {
+                        btn.className = "nav-btn w-full flex items-center p-3 rounded-lg text-left transition-colors font-medium bg-amber-100 text-amber-800";
+                    } else {
+                        btn.className = "nav-btn w-full flex items-center p-3 rounded-lg text-left transition-colors font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900";
+                    }
+                });
+
+                // 콘텐츠 표시/숨김 처리
+                tabContents.forEach(content => {
+                    if (content.id === `tab-${tabId}`) {
+                        content.classList.remove('hidden');
+                        // 애니메이션 재시작 트릭
+                        content.classList.remove('animate-fadeIn');
+                        void content.offsetWidth; 
+                        content.classList.add('animate-fadeIn');
+                        content.classList.add('block');
+                    } else {
+                        content.classList.add('hidden');
+                        content.classList.remove('block');
+                    }
+                });
+            }
+
+            navButtons.forEach(btn => {
+                btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+            });
+
+            // === 상제 vs 천 비교 로직 ===
+            const btnShangdi = document.getElementById('btn-shangdi');
+            const btnTian = document.getElementById('btn-tian');
+            const compTitle = document.getElementById('compare-title');
+            const compNature = document.getElementById('compare-nature');
+            const compSource = document.getElementById('compare-source');
+            const compMeaning = document.getElementById('compare-meaning');
+
+            function updateCompareView(view) {
+                compareView = view;
+                const data = comparisonData[view];
+                
+                compTitle.textContent = data.title;
+                compNature.textContent = data.nature;
+                compSource.textContent = data.source;
+                compMeaning.textContent = data.meaning;
+
+                if (view === 'shangdi') {
+                    btnShangdi.className = "px-6 py-3 rounded-full font-bold transition-all bg-slate-800 text-white shadow-lg scale-105";
+                    btnTian.className = "px-6 py-3 rounded-full font-bold transition-all bg-gray-200 text-gray-600 hover:bg-gray-300";
+                } else {
+                    btnTian.className = "px-6 py-3 rounded-full font-bold transition-all bg-amber-600 text-white shadow-lg scale-105";
+                    btnShangdi.className = "px-6 py-3 rounded-full font-bold transition-all bg-gray-200 text-gray-600 hover:bg-gray-300";
+                }
+            }
+
+            btnShangdi.addEventListener('click', () => updateCompareView('shangdi'));
+            btnTian.addEventListener('click', () => updateCompareView('tian'));
+
+            // === 윤리 딜레마 문제 로직 ===
+            const ethicsOptionsContainer = document.getElementById('ethics-options');
+            const ethicsQuestionEl = document.getElementById('ethics-question');
+            const ethicsNextBtnContainer = document.getElementById('ethics-next-container');
+            const btnGoConclusion = document.getElementById('btn-go-conclusion');
+
+            ethicsQuestionEl.textContent = ethicalDilemma.question;
+
+            function renderEthicsOptions() {
+                ethicsOptionsContainer.innerHTML = ''; // 초기화
+
+                ethicalDilemma.options.forEach(option => {
+                    const isSelected = selectedEthicalAnswer === option.id;
+                    const btnClass = isSelected 
+                        ? (option.correct ? 'border-emerald-500 bg-emerald-50' : 'border-red-500 bg-red-50')
+                        : 'border-slate-200 bg-white hover:border-amber-400 hover:bg-amber-50';
+                    
+                    const numberClass = isSelected
+                        ? (option.correct ? 'text-emerald-600' : 'text-red-600')
+                        : 'text-slate-400';
+                    
+                    const textClass = isSelected ? 'text-slate-800 font-medium' : 'text-slate-600';
+
+                    let feedbackHtml = '';
+                    if (isSelected) {
+                        const feedbackBg = option.correct ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800';
+                        const iconName = option.correct ? 'check-circle-2' : 'alert-triangle';
+                        feedbackHtml = `
+                            <div class="mt-3 p-5 rounded-lg animate-fadeIn flex items-start ${feedbackBg}">
+                                <i data-lucide="${iconName}" class="mr-3 flex-shrink-0 w-6 h-6"></i>
+                                <p class="font-medium leading-relaxed">${option.feedback}</p>
+                            </div>
+                        `;
+                    }
+
+                    const optDiv = document.createElement('div');
+                    optDiv.innerHTML = `
+                        <button class="w-full text-left p-5 rounded-xl border-2 transition-all ${btnClass}">
+                            <div class="flex items-start">
+                                <span class="font-bold text-xl mr-4 ${numberClass}">${option.id}.</span>
+                                <p class="text-lg ${textClass}">${option.text}</p>
+                            </div>
+                        </button>
+                        ${feedbackHtml}
+                    `;
+
+                    // 옵션 클릭 이벤트 연결
+                    const btn = optDiv.querySelector('button');
+                    btn.addEventListener('click', () => {
+                        selectedEthicalAnswer = option.id;
+                        renderEthicsOptions(); // 선택 후 재렌더링
+                    });
+
+                    ethicsOptionsContainer.appendChild(optDiv);
+                });
+
+                // 새로 생성된 DOM 요소의 아이콘 렌더링
+                lucide.createIcons({ root: ethicsOptionsContainer });
+
+                // 정답을 선택했으면 다음으로 넘어가기 버튼 표시
+                if (selectedEthicalAnswer) {
+                    ethicsNextBtnContainer.classList.remove('hidden');
+                } else {
+                    ethicsNextBtnContainer.classList.add('hidden');
+                }
+            }
+
+            // 초기 윤리 옵션 렌더링
+            renderEthicsOptions();
+
+            // 다음 탭 넘어가기 버튼
+            btnGoConclusion.addEventListener('click', () => {
+                switchTab('conclusion');
+            });
+
+            // === 모달(인포그래픽) 로직 ===
+            const modal = document.getElementById('infographic-modal');
+            const modalContent = document.getElementById('modal-content');
+            const btnOpenModal = document.getElementById('btn-infographic');
+            const btnCloseModal = document.getElementById('btn-close-modal');
+
+            function openModal() {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+
+            function closeModal() {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+
+            btnOpenModal.addEventListener('click', openModal);
+            btnCloseModal.addEventListener('click', closeModal);
+            
+            // 모달 배경 클릭 시 닫기
+            modal.addEventListener('click', (e) => {
+                // 모달 컨텐츠 바깥(배경)을 클릭한 경우에만 닫힘
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // 모달 콘텐츠 내부 클릭 시 닫히는 현상 방지
+            modalContent.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html>
